@@ -14,6 +14,8 @@ Jester is your life Companion, he helps you with your daily activities
    ref: https://planetscale.com/docs
 5. PRISMA
    ref: https://www.prisma.io/docs/getting-started/quickstart
+6. NEXT-AUTH
+   ref:https://next-auth.js.org/getting-started/example
 
 # Installs:
 
@@ -31,8 +33,11 @@ NEXT-THEMES
 npm install next-themes
 
 PRISMA
-npm install prisma --save-dev
+npm i prisma --save-dev
 npm i @prisma/client
 npx prisma init --datasource-provider mysql
 npx prisma db push
 npx prisma generate
+
+NEXT-AUTH
+npm i next-auth @next-auth/prisma-adapter
