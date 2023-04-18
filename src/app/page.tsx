@@ -1,13 +1,25 @@
+import getExample from "@/actions/getExample";
+import { formatDate } from "@/lib/utils";
 import Navbar from "@/navbar/Navbar";
 
-export default function Home() {
+export default async function Home() {
+  const examples = await getExample();
+
   return (
     <div>
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+      <main className="">
+        <div className="">
           <h1 className="underline text-2xl">Hello World</h1>
         </div>
+        <p>This is my examples</p>
+        {examples &&
+          examples.map((example) => (
+            <li key={example.id}>
+              <p>Post: {example.post}</p>
+              <p>Created at: {formatDate(example.createdAt.toString())}</p>
+            </li>
+          ))}
       </main>
     </div>
   );
