@@ -5,9 +5,13 @@ function getBaseUrl() {
 export default async function Home() {
   const url = getBaseUrl();
 
-  console.log(process.env.NEXT_PUBLIC_VERCEL_URL);
-  console.log(process.env.VERCEL_URL);
-  console.log(process.env.BASE_URL);
-  console.log(process.env.url);
-  return <p>hello world: {url}</p>;
+  return (
+    <div>
+      <p>hello world </p>
+      <p>NEXT_PUBLIC_VERCEL_URL: ~{process.env.NEXT_PUBLIC_VERCEL_URL}~ </p>
+      <p>VERCEL_URL: ~{process.env.VERCEL_URL}~</p>
+      <p>BASE_URL: ~{process.env.BASE_URL}~</p>
+      <p>url: ~{process.env.url}~</p>
+    </div>
+  );
 }
