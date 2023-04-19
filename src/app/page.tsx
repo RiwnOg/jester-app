@@ -1,13 +1,12 @@
+import getExample from '@/actions/getExample';
 import { authOptions } from '@/lib/auth';
 import { formatDate } from '@/lib/utils';
 import Navbar from '@/navbar/Navbar';
 import { getServerSession } from 'next-auth/next';
-import prisma from '@/lib/prisma';
 
 export default async function Home() {
   const sessionData = await getServerSession(authOptions);
-
-  const examples = await prisma.example.findMany();
+  const examples = await getExample();
 
   return (
     <div>
