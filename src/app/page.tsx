@@ -4,7 +4,7 @@ import Navbar from '@/navbar/Navbar';
 import { Example } from '@prisma/client';
 import { getServerSession } from 'next-auth/next';
 
-export function getBaseUrl() {
+function getBaseUrl() {
   return process.env.BASE_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
 }
 
