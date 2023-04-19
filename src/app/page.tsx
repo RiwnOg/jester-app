@@ -8,6 +8,7 @@ export default async function Home() {
   return (
     <div>
       <p>hello world </p>
+      <p>NEXT_PUBLIC_SITE_URL: ~{process.env.NEXT_PUBLIC_SITE_URL}~ </p>
       <p>NEXT_PUBLIC_VERCEL_URL: ~{process.env.NEXT_PUBLIC_VERCEL_URL}~ </p>
       <p>VERCEL_URL: ~{process.env.VERCEL_URL}~</p>
       <p>BASE_URL: ~{process.env.BASE_URL}~</p>
