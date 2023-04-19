@@ -1,18 +1,13 @@
 import { authOptions } from '@/lib/auth';
-import { formatDate } from '@/lib/utils';
+import { formatDate, baseURL } from '@/lib/utils';
 import Navbar from '@/navbar/Navbar';
 import { Example } from '@prisma/client';
 import { getServerSession } from 'next-auth/next';
 
-function getBaseUrl() {
-  return process.env.BASE_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
-}
-
 export default async function Home() {
   const sessionData = await getServerSession(authOptions);
-  const url = getBaseUrl();
 
-  const res = await fetch(`${url}/api/example`, {
+  const res = await fetch(`${baseURL}/api/example`, {
     method: 'GET',
   });
   const examples = await res.json();
