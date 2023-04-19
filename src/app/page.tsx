@@ -1,20 +1,20 @@
-import getExample from "@/actions/getExample";
-import { authOptions } from "@/lib/auth";
-import { formatDate } from "@/lib/utils";
-import Navbar from "@/navbar/Navbar";
-
-import { getServerSession } from "next-auth/next";
+import { authOptions } from '@/lib/auth';
+import { formatDate } from '@/lib/utils';
+import Navbar from '@/navbar/Navbar';
+import { getServerSession } from 'next-auth/next';
+import prisma from '@/lib/prisma';
 
 export default async function Home() {
-  const examples = await getExample();
   const sessionData = await getServerSession(authOptions);
+
+  const examples = await prisma.example.findMany();
 
   return (
     <div>
       <Navbar />
-      <main className="">
-        <div className="">
-          <h1 className="underline text-2xl">Welcome! 👋</h1>
+      <main className=''>
+        <div className=''>
+          <h1 className='underline text-2xl'>Welcome! 👋</h1>
         </div>
         {sessionData ? (
           <div>
