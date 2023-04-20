@@ -18,3 +18,8 @@ export async function POST(request: Request) {
   const res = await request.json();
   return NextResponse.json({ res });
 }
+
+export async function DELETE(request: Request) {
+  const res = await prisma.example.deleteMany();
+  return NextResponse.json(res);
+}

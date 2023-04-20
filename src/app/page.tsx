@@ -3,6 +3,7 @@ import { formatDate, baseURL } from '@/lib/utils';
 import Navbar from '@/navbar/Navbar';
 import { Example } from '@prisma/client';
 import { getServerSession } from 'next-auth/next';
+import DeleteExample from './DeleteExample';
 
 export default async function Home() {
   const sessionData = await getServerSession(authOptions);
@@ -23,6 +24,7 @@ export default async function Home() {
           <div>
             <p>Congrats! {sessionData?.user?.name} 🎉</p>
             <p>You have Found my secrets</p>
+            <DeleteExample baseUrl={baseURL} />
             {examples &&
               examples.map((example: Example) => (
                 <li key={example.id}>
