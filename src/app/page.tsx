@@ -1,5 +1,5 @@
 import { authOptions } from '@/lib/auth';
-import { formatDate, baseURL } from '@/lib/utils';
+import { formatDate, baseURL, fetchWrapper } from '@/lib/utils';
 import Navbar from '@/navbar/Navbar';
 import { Example } from '@prisma/client';
 import { getServerSession } from 'next-auth/next';
@@ -7,11 +7,15 @@ import DeleteExample from './DeleteExample';
 
 export default async function Home() {
   const sessionData = await getServerSession(authOptions);
-
+  /*
   const res = await fetch(`${baseURL}/api/example`, {
     method: 'GET',
   });
-  const examples = await res.json();
+*/
+
+  const examples = await fetchWrapper<Example[]>('/example', {
+    method: 'GET',
+  });
 
   return (
     <div>

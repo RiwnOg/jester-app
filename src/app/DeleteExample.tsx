@@ -1,18 +1,21 @@
 'use client';
 
-// import { baseURL } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
+
+import { baseURL } from '@/lib/utils';
 
 interface deleteExampleProps {
   baseUrl?: String;
 }
 
 const DeleteExample: React.FC<deleteExampleProps> = ({ baseUrl }) => {
-  const delExample = () => {
-    console.log('Deleting...', baseUrl);
+  const router = useRouter();
 
+  const delExample = () => {
     fetch(`${baseUrl}/api/example`, {
       method: 'DELETE',
     });
+    router.refresh();
   };
 
   return (
