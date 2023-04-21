@@ -2,8 +2,6 @@
 
 import { useRouter } from 'next/navigation';
 
-import { baseURL } from '@/lib/utils';
-
 interface deleteExampleProps {
   baseUrl?: String;
 }
