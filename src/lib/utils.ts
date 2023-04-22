@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export function formatDate(input: string | number): string {
   const date = new Date(input);
   return date.toLocaleString('en-US', {
@@ -20,3 +22,7 @@ export async function fetchWrapper<T = unknown>(
   const result = await data.json();
   return result as T;
 }
+
+export const axiosClient = axios.create({
+  baseURL: baseURL,
+});

@@ -1,6 +1,5 @@
 import { authOptions } from '@/lib/auth';
 import { formatDate, baseURL, fetchWrapper } from '@/lib/utils';
-import Navbar from '@/navbar/Navbar';
 import { Example } from '@prisma/client';
 import { getServerSession } from 'next-auth/next';
 import DeleteExample from './DeleteExample';
@@ -19,7 +18,6 @@ export default async function Home() {
 
   return (
     <div>
-      <Navbar />
       <main className=''>
         <div className=''>
           <h1 className='underline text-2xl'>Welcome! 👋</h1>
